@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>square</title>
+    <style>
+      body {
+        margin: 200px;
+      }
+
+      .square {
+        width: 210px;
+        height: 210px;
+        background-image: url(./square-bg.png),
+          linear-gradient(#e66465, #9198e5);
+        border: 4px solid black;
+      }
+
+      .inner {
+        display: block;
+        position: relative;
+        width: 60px;
+        height: 60px;
+        content: "";
+        top: 0;
+        left: 0;
+        mix-blend-mode: color-burn;
+        background-color: black;
+      }
+
+      .inner img {
+        width: 40px;
+        fill: currentColor;
+        color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="square">
+      <div class="inner">
+        <img src="./Downloads/eye-svgrepo-com.svg" alt="" />
+      </div>
+    </div>
+  </body>
+</html>
