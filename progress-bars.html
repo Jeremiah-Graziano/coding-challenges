@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dogs breakfast</title>
+    <link rel="stylesheet" href="portfolio.css" />
+    <style>
+      .progress {
+        width: 400px;
+        padding: 0;
+        list-style: none;
+      }
+
+      .progress li {
+        line-height: 30px;
+        border-radius: 10px;
+      }
+
+      .progress li::before {
+        display: block;
+        content: attr(data-value) "% (" attr(data-label) ")";
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      .progress li::after {
+        display: block;
+        content: attr(data-description);
+        font-size: 12px;
+        color: rgb(101, 101, 101);
+      }
+
+      .progress div {
+        height: 12px;
+        padding: 5px;
+        border-radius: 8px;
+        background-color: #eaeaea;
+      }
+
+      .progress div::before {
+        display: block;
+        height: inherit;
+        padding: 0;
+        content: "";
+        border-radius: 8px;
+        background-color: #3c00c7;
+        transition: width 1s ease-in-out;
+      }
+
+      .progress li:not([data-label="All dogs"])::before {
+        content: "My dog, " attr(data-label) ", eats " attr(data-value)
+          "% of the time.";
+      }
+
+      .progress li:nth-child(1) div::before {
+        width: var(--progress-bar-1);
+      }
+
+      .progress li:nth-child(2) div::before {
+        width: var(--progress-bar-2);
+      }
+
+      .progress li:nth-child(3) div::before {
+        width: var(--progress-bar-3);
+      }
+
+      .progress li:nth-child(4) div::before {
+        width: var(--progress-bar-4);
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="universal-nav">
+      <div>
+        <h2 class="project-name">Progress bars</h2>
+        <p class="progress-bars">
+          Project <span class="material-symbols-outlined"> info </span>
+        </p>
+      </div>
+      <div style="color: #c5c5c5">
+        <a href="./portfolio-site.html">Home page</a> |
+        <a title="Layers" href="./spreadsheet.html">Next project →</a>
+      </div>
+    </nav>
+
+    <h3>Breakfast progress</h3>
+
+    <ul class="progress">
+      <!-- Oliver (78%) -->
+      <li
+        data-label="Oliver"
+        data-description="Eats breakfast at 8am"
+        data-value="78"
+      >
+        <div></div>
+      </li>
+      <!-- All dogs (45%) -->
+      <li
+        data-label="All dogs"
+        data-description="Eats breakfast at 7:15am"
+        data-value="45"
+      >
+        <div></div>
+      </li>
+      <!-- Toby (93%) -->
+      <li
+        data-label="Toby"
+        data-description="Eats breakfast at 8am"
+        data-value="93"
+      >
+        <div></div>
+      </li>
+      <!-- Oakley (44%) -->
+      <li
+        data-label="Oakley"
+        data-description="Eats breakfast at 7:15am"
+        data-value="57"
+      >
+        <div></div>
+      </li>
+    </ul>
+
+    <script type="text/javascript">
+      let root = document.documentElement;
+      document.querySelectorAll("li[data-value]").forEach((node, index) => {
+        root.style.setProperty(
+          `--progress-bar-` + (index + 1),
+          node.dataset.value + "%"
+        );
+      });
+    </script>
+  </body>
+</html>
